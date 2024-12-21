@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car_Management_System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(246, 239, 239);
+            color: black;
+            display: flex;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 550px;
+            text-align: left;
+        }
+
+        h2 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(8, 8, 86);
+            font-size: 23px;
+
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: gray;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0 5px;
+            color: gray;
+            font-size: 14px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="file"],
+        textarea {
+            padding: 10px;
+            margin-bottom: -10px;
+            border: 0.5px solid gray;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            width: 60%;
+        }
+
+        textarea {
+            height: 40px;
+        }
+
+        input[type="file"]::placeholder {
+            color: #ddd;
+        }
+
+        button {
+            background-color: rgb(8, 8, 86);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+
+        a {
+            margin-left: 390px;
+            color: blue;
+            border-radius: 5px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1rem;
+
+        }
+
+        .cur {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(8, 8, 86);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="{% url 'car_detail' car.id %}">Back to Car Details</a>
+        <h2>Edit {{ car.title }} Details</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <label for="images">Upload New Images (Max 10):</label>
+            <input type="file" id="images" name="images" multiple accept="image/*">
+            <p> <span style="color: red;">Note:</span>Uploading new images will replace <span
+                    class="cur">existing</span> ones.</p>
+            <button type="submit">Update Details</button>
+        </form>
+
+        <br>
+
+    </div>
+</body>
+
+</html>

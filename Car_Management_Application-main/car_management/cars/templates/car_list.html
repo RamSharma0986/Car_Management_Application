@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car_Management_System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(246, 239, 239);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+
+        a {
+            color: blue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 70%;
+            padding: 10px;
+            border: 0.5px solid gray;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: rgb(8, 8, 86);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        li .car-title {
+            width: 50%;
+            font-weight: bold;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        li .car-description {
+            width: 50%;
+            font-size: 15px;
+            color: gray;
+            align-items: justify;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .list-header div {
+            width: 50%;
+            text-align: center;
+        }
+
+        #gg {
+            color: rgb(8, 8, 86);
+
+        }
+        .NC{
+            margin-left: 220px;
+            font-family:'Times New Roman', Times, serif;
+            color: gray;
+            font-weight: bold;
+            font-size: 23px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Cars</h1>
+
+        {% if user.is_authenticated %}
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="{% url 'logout' %}">Log Out</a> |
+            <a href="{% url 'car_create' %}">Add New Car</a>
+        </div>
+        {% else %}
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+        {% endif %}
+
+        <form method="GET">
+            <input type="text" name="query" placeholder="Search..." value="{{ request.GET.query }}">
+            <button type="submit">Search</button>
+        </form>
+        <br>
+
+        <div class="list-header">
+            <div>Car Name</div>
+            <div>Car Description</div>
+        </div>
+        <ul>
+            {% for car in cars %}
+            <li>
+                <div class="car-title">
+                    <a href="{% url 'car_detail' car.id %}" id="gg">{{ car.title }}</a>
+                </div>
+                <div class="car-description">
+                    {{ car.description }}
+                </div>
+            </li>
+            {% empty %}
+            <br>
+            <p class="NC">No Car Available !</p>
+            {% endfor %}
+        </ul>
+        
+    </div>
+</body>
+
+</html>
