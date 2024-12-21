@@ -89,8 +89,6 @@ If no cars are available, it shows **"No car available"** 😞.
 ## 📋 Viewing Car Details  
 Clicking on any car name displays its details. 🛠️ However, you can't modify the description unless you **register and log in**.  
 
-![Car details](https://github.com/user-attachments/assets/c0d56fe7-4a70-4dc5-899a-d271f34d52d0)
-
 ---
 
 ## 🔑 Registration and Login  
@@ -117,17 +115,12 @@ Click **Create New Car** to access a form for adding details:
 - **Image Upload (max: 10 images)** 📸  
 Exceeding 10 images shows an error ❗.
 
-![Create car form](https://github.com/user-attachments/assets/7f613999-4564-4684-9209-13990a994613)
-
 ---
 
 ## ✏️ Editing and ❌ Deleting Cars  
 After logging in, clicking any car on the homepage displays **Edit** and **Delete** buttons at the bottom.  
 - **Edit Button** ✏️: Opens a form to modify car details.  
 - **Delete Button** ❌: Removes the car.
-
-![Edit/Delete buttons](https://github.com/user-attachments/assets/8ce7fb70-7c8b-42a0-8264-7cd2b23f990c)  
-![Edit form](https://github.com/user-attachments/assets/345af7dd-422a-45e6-b2e8-8c9a42373711)
 
 ---
 
