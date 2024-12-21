@@ -1,8 +1,6 @@
 # Car_Management_Application
 🚗✨ Built a Car Management Application in Django to simplify car management! 🚀🛠️
 
-**Video Link** <a href="https://drive.google.com/file/d/1_8_w-3Hdb1h81br3mLjcYW3k7NLiA_r4/view" target="_blank" > Click Here </a>
-
 🚗✨ I created a Car Management System with Login/Register, a car list, and a Search option. If no cars are available, it shows "No car available". Registered users can add, edit, or delete cars, while unregistered users can only view descriptions. After login, Create New Car and Logout buttons appear. The form allows adding car details and up to 10 images. Editing and deleting options are available after login. 🚙💻
 
 ## Prerequisites
